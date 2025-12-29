@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react"
 
 const faqs = [
   {
-    question: "What is LeLo and how does it work?",
+    question: "What is Kunthive and how does it work?",
     answer:
       "LeLo is a comprehensive SaaS platform designed to streamline your business operations. It combines project management, team collaboration, analytics, and automation tools in one unified dashboard. Simply sign up, invite your team, and start organizing your workflows with our intuitive interface.",
   },

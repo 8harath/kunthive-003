@@ -4,7 +4,7 @@ import "./globals.css"
 import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
-  title: "LeLo - Modern SaaS Solution",
+  title: "Kunthive - Modern SaaS Solution",
   description: "Jab sb aapki le rahe ho to aap bhi khuch lelo",
   generator: "v0.app",
 }
