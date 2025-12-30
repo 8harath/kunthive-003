@@ -159,11 +159,20 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
   }
 
   const nextWord = (word: string, canvas: HTMLCanvasElement) => {
+    // Check if canvas has valid dimensions
+    if (!canvas || canvas.width === 0 || canvas.height === 0) {
+      return
+    }
+
     // Create off-screen canvas for text rendering
     const offscreenCanvas = document.createElement("canvas")
     offscreenCanvas.width = canvas.width
     offscreenCanvas.height = canvas.height
     const offscreenCtx = offscreenCanvas.getContext("2d")!
+
+    if (!offscreenCtx) {
+      return
+    }
 
     // Draw text
     offscreenCtx.fillStyle = "white"
@@ -171,6 +180,11 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
     offscreenCtx.textAlign = "center"
     offscreenCtx.textBaseline = "middle"
     offscreenCtx.fillText(word, canvas.width / 2, canvas.height / 3)
+
+    // Ensure dimensions are valid before getting image data
+    if (offscreenCanvas.width === 0 || offscreenCanvas.height === 0) {
+      return
+    }
 
     const imageData = offscreenCtx.getImageData(0, 0, canvas.width, canvas.height)
     const pixels = imageData.data
@@ -311,16 +325,35 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
     const resizeCanvas = () => {
       const container = canvas.parentElement
       if (container) {
-        canvas.width = container.clientWidth
-        canvas.height = container.clientHeight
+        const width = container.clientWidth || window.innerWidth
+        const height = container.clientHeight || window.innerHeight
+        
+        // Ensure minimum dimensions
+        if (width > 0 && height > 0) {
+          canvas.width = width
+          canvas.height = height
+        }
       }
     }
 
-    // Initial resize
-    resizeCanvas()
+    // Initial resize - use a small delay to ensure container is rendered
+    const initCanvas = () => {
+      resizeCanvas()
+      
+      // Only initialize if canvas has valid dimensions
+      if (canvas.width > 0 && canvas.height > 0) {
+        nextWord(words[0], canvas)
+        animate()
+      } else {
+        // Retry after a short delay if dimensions aren't ready
+        setTimeout(initCanvas, 100)
+      }
+    }
 
-    // Initialize with first word
-    nextWord(words[0], canvas)
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+      initCanvas()
+    })
 
     // Start animation
     animate()
@@ -351,8 +384,10 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
 
     const handleResize = () => {
       resizeCanvas()
-      // Reinitialize particles with new dimensions
-      nextWord(words[wordIndexRef.current], canvas)
+      // Reinitialize particles with new dimensions only if valid
+      if (canvas.width > 0 && canvas.height > 0) {
+        nextWord(words[wordIndexRef.current], canvas)
+      }
     }
 
     canvas.addEventListener("mousedown", handleMouseDown)
