@@ -311,8 +311,10 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
     // Auto-advance words
     frameCountRef.current++
     if (frameCountRef.current % 240 === 0) {
-      wordIndexRef.current = (wordIndexRef.current + 1) % words.length
-      nextWord(words[wordIndexRef.current], canvas)
+      if (canvas.width > 0 && canvas.height > 0) {
+        wordIndexRef.current = (wordIndexRef.current + 1) % words.length
+        nextWord(words[wordIndexRef.current], canvas)
+      }
     }
 
     animationRef.current = requestAnimationFrame(animate)
