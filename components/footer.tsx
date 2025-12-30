@@ -1,5 +1,7 @@
 import { LeLoLogo } from "./lelo-logo"
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, Github } from "lucide-react"
+import { BackgroundPaths } from "./ui/floating-paths"
+import Link from "next/link"
 
 export function Footer() {
   const socialLinks = [
@@ -12,8 +14,11 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-black border-t border-white/10 py-12 px-4">
-      <div className="container mx-auto">
+    <footer className="relative bg-black border-t border-white/10 py-12 px-4 overflow-hidden">
+      <div className="absolute inset-0 opacity-30">
+        <BackgroundPaths />
+      </div>
+      <div className="relative z-10 container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="col-span-1">
             <LeLoLogo className="mb-4" />
@@ -43,24 +48,24 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-2 text-white/70">
               <li>
-                <a href="#features" className="hover:text-white transition-colors">
-                  Features
-                </a>
+                <Link href="/" className="hover:text-white transition-colors">
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
+                <Link href="/services" className="hover:text-white transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-white transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white transition-colors">
+                <Link href="/contact" className="hover:text-white transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
