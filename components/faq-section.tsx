@@ -6,44 +6,44 @@ import { ChevronDown } from "lucide-react"
 
 const faqs = [
   {
-    question: "What is Kunthive and how does it work?",
+    question: "What services does Kunthive offer?",
     answer:
-      "Kunthive is a comprehensive SaaS platform designed to streamline your business operations. It combines project management, team collaboration, analytics, and automation tools in one unified dashboard. Simply sign up, invite your team, and start organizing your workflows with our intuitive interface.",
+      "Kunthive specializes in five core services: Building custom web applications, improving SEO rankings, managing social media accounts, digitizing traditional business processes, and incorporating AI into existing workflows to automate and optimize operations.",
   },
   {
-    question: "Can I try Kunthive before committing to a paid plan?",
+    question: "How long does it take to build a web application?",
     answer:
-      "We offer a 14-day free trial for all our plans. No credit card required. You'll have full access to all features during the trial period, and you can upgrade or cancel anytime.",
+      "The timeline varies based on project complexity and requirements. Simple applications typically take 4-8 weeks, while more complex solutions may take 3-6 months. We'll provide a detailed timeline during our initial consultation.",
   },
   {
-    question: "How secure is my data with Kunthive?",
+    question: "Can you help improve my website's SEO?",
     answer:
-      "Security is our top priority. We use bank-level encryption, comply with SOC 2 Type II standards, and offer features like two-factor authentication, SSO integration, and regular security audits. Your data is stored in secure, redundant data centers with 99.9% uptime guarantee.",
+      "Absolutely! Our SEO services include keyword research, on-page optimization, technical SEO audits, content strategy, link building, and ongoing monitoring. We'll create a customized strategy to improve your search engine rankings and drive organic traffic.",
   },
   {
-    question: "Can I integrate Kunthive with my existing tools?",
+    question: "What social media platforms do you manage?",
     answer:
-      "Yes! Kunthive integrates with over 100+ popular tools including Slack, Google Workspace, Microsoft 365, Salesforce, Zapier, and many more. Our API also allows for custom integrations to fit your specific workflow needs.",
+      "We manage all major social media platforms including Facebook, Instagram, Twitter, LinkedIn, TikTok, and YouTube. Our services include content creation, posting schedules, community engagement, analytics reporting, and paid advertising management.",
   },
   {
-    question: "What kind of support do you provide?",
+    question: "What does business digitization involve?",
     answer:
-      "We provide comprehensive support including email support for all plans, priority support for Professional plans, and 24/7 dedicated support for Enterprise customers. We also offer extensive documentation, video tutorials, and webinar training sessions.",
+      "Business digitization includes converting paper-based processes to digital systems, implementing cloud solutions, automating workflows, setting up digital payment systems, creating online presence, and training your team on new digital tools. We assess your needs and create a comprehensive transformation plan.",
   },
   {
-    question: "Can I change my plan anytime?",
+    question: "How can AI be integrated into my existing workflow?",
     answer:
-      "Yes, you can upgrade or downgrade your plan at any time. When you upgrade, you'll be charged the prorated difference immediately. When you downgrade, the change will take effect at your next billing cycle, and you'll continue to have access to your current plan's features until then.",
+      "We analyze your current processes and identify areas where AI can add value. This may include chatbots for customer service, automated data processing, predictive analytics, intelligent document management, or workflow automation. We ensure seamless integration with your existing systems.",
   },
   {
-    question: "Do you offer refunds?",
+    question: "Do you work with businesses of all sizes?",
     answer:
-      "We offer a 30-day money-back guarantee for all paid plans. If you're not satisfied with Kunthive within the first 30 days of your subscription, contact our support team for a full refund.",
+      "Yes! We work with startups, small businesses, mid-sized companies, and large enterprises. Our services are scalable and can be customized to fit businesses at any stage of growth, from just starting out to well-established organizations.",
   },
   {
-    question: "Is there a limit on the number of projects or users?",
+    question: "What is included in your pricing plans?",
     answer:
-      "Limits depend on your plan. Starter plans support up to 5 users and 10 projects, Professional plans support up to 25 users and unlimited projects, while Enterprise plans offer unlimited users and projects. Check our pricing page for detailed information.",
+      "Our pricing plans vary by service and scope. Each plan includes consultation, project management, regular updates, and support. Enterprise plans include dedicated account managers, priority support, custom integrations, and advanced features. Contact us for a customized quote based on your specific needs.",
   },
 ]
 

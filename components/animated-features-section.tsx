@@ -109,51 +109,51 @@ export function AnimatedFeaturesSection() {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
-            Powerful Features
+            Our Services
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Everything you need to take your business to the next level
+            Comprehensive digital solutions to elevate your business
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[600px]">
           <div className="md:col-span-2">
             <BentoCard
-              title="Advanced Analytics"
-              value="Real-time Insights"
-              subtitle="Get deep insights into your business performance with comprehensive analytics and reporting"
+              title="Web Applications"
+              value="Custom Built"
+              subtitle="Scalable, responsive web applications tailored to your business needs and goals"
               colors={["#1a1a1a", "#2a2a2a", "#1f1f1f"]}
               delay={0.2}
             />
           </div>
           <BentoCard
-            title="Team Collaboration"
-            value="Seamless"
-            subtitle="Work together efficiently"
+            title="SEO Optimization"
+            value="Higher Rankings"
+            subtitle="Boost your visibility and drive organic traffic with proven SEO strategies"
             colors={["#151515", "#252525", "#1d1d1d"]}
             delay={0.4}
           />
           <BentoCard
-            title="Lightning Performance"
-            value="99.9%"
-            subtitle="Uptime guaranteed"
+            title="Social Media"
+            value="Managed"
+            subtitle="Engage your audience and grow your brand across all platforms"
             colors={["#1c1c1c", "#2c2c2c", "#181818"]}
             delay={0.6}
           />
           <div className="md:col-span-2">
             <BentoCard
-              title="Enterprise Security"
-              value="Bank-level"
-              subtitle="End-to-end encryption with compliance certifications for maximum security"
+              title="Business Digitization"
+              value="Full Transformation"
+              subtitle="Transform traditional processes into modern, efficient digital workflows"
               colors={["#171717", "#272727", "#1b1b1b"]}
               delay={0.8}
             />
           </div>
           <div className="md:col-span-3">
             <BentoCard
-              title="Global Scale & Mobile Ready"
-              value="Worldwide"
-              subtitle="Deploy globally with our infrastructure and access your dashboard anywhere with responsive design"
+              title="AI Integration"
+              value="Workflow Automation"
+              subtitle="Incorporate AI into your existing workflow to streamline tasks and boost productivity"
               colors={["#131313", "#232323", "#191919"]}
               delay={1}
             />

@@ -8,9 +8,9 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <LeLoLogo className="mb-4" />
             <p className="text-white/70 mb-4 max-w-md">
-              Empowering businesses with cutting-edge SaaS solutions. Take control of your success with Kunthive.
+              Empowering businesses with comprehensive digital solutions. From web applications to AI integration, we help transform your business for the digital age.
             </p>
-            <p className="text-sm text-white/50 italic">"Jab sb aapki le rahe ho to aap bhi khuch lelo"</p>
+            <p className="text-sm text-white/50 italic">Transform your business with digital excellence</p>
           </div>
 
           <div>

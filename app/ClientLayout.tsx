@@ -25,11 +25,7 @@ function ClientLayoutContent({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}>{children}</body>
-    </html>
-  )
+  return <>{children}</>
 }
 
 export default function ClientLayout({
@@ -40,14 +36,14 @@ export default function ClientLayout({
   return (
     <Suspense
       fallback={
-        <html lang="en">
-          <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}>
-            <div>Loading...</div>
-          </body>
-        </html>
+        <div className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}>
+          <div>Loading...</div>
+        </div>
       }
     >
-      <ClientLayoutContent>{children}</ClientLayoutContent>
+      <div className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}>
+        <ClientLayoutContent>{children}</ClientLayoutContent>
+      </div>
     </Suspense>
   )
 }

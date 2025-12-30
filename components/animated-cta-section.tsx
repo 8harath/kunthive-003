@@ -54,7 +54,7 @@ export function AnimatedCTASection() {
             className="text-xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-md animate-fade-in-up"
             style={{ animationDelay: "0.7s" }}
           >
-            Join thousands of companies already using Kunthive to streamline their operations and boost productivity.
+            Partner with Kunthive to build powerful web applications, boost your online presence, and automate your workflow with AI.
           </p>
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"

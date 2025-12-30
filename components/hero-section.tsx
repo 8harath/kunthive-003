@@ -8,14 +8,17 @@ export function HeroSection() {
   return (
     <section className="py-20 px-4 relative overflow-hidden min-h-screen flex flex-col justify-between">
       <div className="flex-1 flex items-start justify-center pt-20">
-        <ParticleTextEffect words={["Kunthive", "Saas"]} />
+        <ParticleTextEffect words={["Kunthive", "Digital"]} />
       </div>
 
       <div className="container mx-auto text-center relative z-10 pb-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-balance">
-            Jab sb aapki le rahe ho to <span className="text-gray-300">aap bhi khuch lelo</span>
+            Transform Your Business with <span className="text-gray-300">Digital Excellence</span>
           </h2>
+          <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            Web applications, SEO optimization, social media management, business digitization, and AI-powered workflows
+          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" className="bg-white hover:bg-gray-200 text-black group">
@@ -31,7 +34,7 @@ export function HeroSection() {
             <div className="group relative m-auto max-w-6xl">
               <div className="flex flex-col items-center md:flex-row">
                 <div className="md:max-w-44 md:border-r md:border-gray-600 md:pr-6 mb-4 md:mb-0">
-                  <p className="text-end text-sm text-gray-400">Powering the best teams</p>
+                  <p className="text-end text-sm text-gray-400">Trusted by businesses</p>
                 </div>
                 <div className="relative py-6 md:w-[calc(100%-11rem)]">
                   <InfiniteSlider durationOnHover={20} duration={40} gap={112}>

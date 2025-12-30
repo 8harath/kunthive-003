@@ -4,8 +4,8 @@ import "./globals.css"
 import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
-  title: "Kunthive - Modern SaaS Solution",
-  description: "Jab sb aapki le rahe ho to aap bhi khuch lelo",
+  title: "Kunthive - Digital Solutions for Modern Businesses",
+  description: "Transform your business with web applications, SEO optimization, social media management, business digitization, and AI-powered workflow automation.",
   generator: "v0.app",
 }
 
@@ -14,5 +14,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <ClientLayout>{children}</ClientLayout>
+  return (
+    <html lang="en">
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
+    </html>
+  )
 }

@@ -9,8 +9,8 @@ const pricingPlans = [
     name: "Starter",
     price: "$29",
     period: "/month",
-    description: "Perfect for small teams getting started",
-    features: ["Up to 5 team members", "10GB storage", "Basic analytics", "Email support", "Standard integrations"],
+    description: "Perfect for small businesses getting started",
+    features: ["Basic web app consultation", "SEO audit & report", "Social media management (2 platforms)", "Digital transformation plan", "AI workflow assessment"],
     popular: false,
   },
   {
@@ -19,13 +19,13 @@ const pricingPlans = [
     period: "/month",
     description: "Best for growing businesses",
     features: [
-      "Up to 25 team members",
-      "100GB storage",
-      "Advanced analytics",
+      "Custom web application development",
+      "Comprehensive SEO optimization",
+      "Social media management (all platforms)",
+      "Full business digitization",
+      "AI integration & automation",
       "Priority support",
-      "All integrations",
-      "Custom workflows",
-      "API access",
+      "Monthly strategy reviews",
     ],
     popular: true,
   },
@@ -35,14 +35,14 @@ const pricingPlans = [
     period: "",
     description: "For large organizations",
     features: [
-      "Unlimited team members",
-      "Unlimited storage",
-      "Enterprise analytics",
+      "Enterprise web solutions",
+      "Advanced SEO & content strategy",
+      "Dedicated social media team",
+      "Complete digital transformation",
+      "Custom AI solutions",
       "24/7 dedicated support",
-      "Custom integrations",
-      "Advanced security",
+      "Dedicated account manager",
       "SLA guarantee",
-      "On-premise deployment",
     ],
     popular: false,
   },
@@ -70,7 +70,7 @@ export function PricingSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Choose the perfect plan for your business needs. No hidden fees, no surprises.
+            Flexible pricing plans tailored to your business needs. All plans include consultation and support.
           </motion.p>
         </div>
 
