@@ -357,9 +357,6 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
       initCanvas()
     })
 
-    // Start animation
-    animate()
-
     // Mouse event handlers
     const handleMouseDown = (e: MouseEvent) => {
       mouseRef.current.isPressed = true
