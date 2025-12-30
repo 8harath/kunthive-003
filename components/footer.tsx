@@ -14,18 +14,18 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative bg-black border-t border-white/10 py-12 px-4 overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
+    <footer className="relative bg-black border-t border-white/10 py-6 md:py-8 px-4 overflow-hidden">
+      <div className="absolute inset-0 opacity-20">
         <BackgroundPaths />
       </div>
       <div className="relative z-10 container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="col-span-1">
-            <LeLoLogo className="mb-4" />
-            <p className="text-white/70 mb-6 max-w-md">
-              Empowering businesses with comprehensive digital solutions. From web applications to AI integration, we help transform your business for the digital age.
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="col-span-2 md:col-span-1">
+            <LeLoLogo className="mb-2 md:mb-3" />
+            <p className="text-xs md:text-sm text-white/70 mb-3 md:mb-4 max-w-md">
+              Empowering businesses with comprehensive digital solutions.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2 md:gap-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon
                 return (
@@ -37,7 +37,7 @@ export function Footer() {
                     className="text-white/70 hover:text-white transition-colors"
                     aria-label={social.name}
                   >
-                    <Icon className="h-5 w-5" />
+                    <Icon className="h-4 w-4 md:h-5 md:w-5" />
                   </a>
                 )
               })}
@@ -45,8 +45,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-white/70">
+            <h3 className="text-sm md:text-base font-semibold text-white mb-2 md:mb-3">Quick Links</h3>
+            <ul className="space-y-1 md:space-y-2 text-xs md:text-sm text-white/70">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
                   Home
@@ -71,8 +71,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4">Services</h3>
-            <ul className="space-y-2 text-white/70">
+            <h3 className="text-sm md:text-base font-semibold text-white mb-2 md:mb-3">Services</h3>
+            <ul className="space-y-1 md:space-y-2 text-xs md:text-sm text-white/70">
               <li>
                 <span className="hover:text-white transition-colors cursor-default">
                   Web Applications
@@ -85,12 +85,12 @@ export function Footer() {
               </li>
               <li>
                 <span className="hover:text-white transition-colors cursor-default">
-                  Social Media Management
+                  Social Media
                 </span>
               </li>
               <li>
                 <span className="hover:text-white transition-colors cursor-default">
-                  Business Digitization
+                  Digitization
                 </span>
               </li>
               <li>
@@ -102,7 +102,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-8 pt-8 text-center text-white/50">
+        <div className="border-t border-white/10 mt-4 md:mt-6 pt-4 md:pt-6 text-center text-xs md:text-sm text-white/50">
           <p>&copy; 2026 Kunthive. All rights reserved.</p>
         </div>
       </div>

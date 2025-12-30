@@ -69,19 +69,19 @@ const BentoCard: React.FC<BentoCardProps> = ({ title, value, subtitle, colors, d
       </div>
 
       <motion.div
-        className="relative z-10 p-3 sm:p-5 md:p-8 text-foreground backdrop-blur-sm h-full flex flex-col justify-center"
+        className="relative z-10 p-4 sm:p-5 md:p-8 text-foreground backdrop-blur-sm h-full flex flex-col justify-center"
         variants={container}
         initial="hidden"
         animate="show"
       >
-        <motion.h3 className="text-sm sm:text-base md:text-lg text-foreground mb-2" variants={item}>
+        <motion.h3 className="text-sm sm:text-base md:text-lg text-foreground mb-2 md:mb-3" variants={item}>
           {title}
         </motion.h3>
-        <motion.p className="text-2xl sm:text-4xl md:text-5xl font-medium mb-4 text-foreground" variants={item}>
+        <motion.p className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium mb-3 md:mb-4 text-foreground" variants={item}>
           {value}
         </motion.p>
         {subtitle && (
-          <motion.p className="text-sm text-foreground/80" variants={item}>
+          <motion.p className="text-xs sm:text-sm md:text-base text-foreground/80 leading-relaxed" variants={item}>
             {subtitle}
           </motion.p>
         )}
@@ -116,44 +116,48 @@ export function AnimatedFeaturesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[600px]">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 min-h-[500px] md:h-[600px]">
+          <div className="md:col-span-2 min-h-[200px] md:min-h-0">
             <BentoCard
               title="Web Applications"
               value="Custom Built"
-              subtitle="Scalable, responsive web applications tailored to your business needs and goals"
+              subtitle="Scalable, responsive web applications tailored to your business needs and goals. We create modern, user-friendly solutions that drive engagement and growth."
               colors={["#1a1a1a", "#2a2a2a", "#1f1f1f"]}
               delay={0.2}
             />
           </div>
-          <BentoCard
-            title="SEO Optimization"
-            value="Higher Rankings"
-            subtitle="Boost your visibility and drive organic traffic with proven SEO strategies"
-            colors={["#151515", "#252525", "#1d1d1d"]}
-            delay={0.4}
-          />
-          <BentoCard
-            title="Social Media"
-            value="Managed"
-            subtitle="Engage your audience and grow your brand across all platforms"
-            colors={["#1c1c1c", "#2c2c2c", "#181818"]}
-            delay={0.6}
-          />
-          <div className="md:col-span-2">
+          <div className="min-h-[200px] md:min-h-0">
+            <BentoCard
+              title="SEO Optimization"
+              value="Higher Rankings"
+              subtitle="Boost your visibility and drive organic traffic with proven SEO strategies. Improve search rankings and attract qualified leads to your business."
+              colors={["#151515", "#252525", "#1d1d1d"]}
+              delay={0.4}
+            />
+          </div>
+          <div className="min-h-[200px] md:min-h-0">
+            <BentoCard
+              title="Social Media"
+              value="Managed"
+              subtitle="Engage your audience and grow your brand across all platforms. Consistent content, community management, and strategic growth."
+              colors={["#1c1c1c", "#2c2c2c", "#181818"]}
+              delay={0.6}
+            />
+          </div>
+          <div className="md:col-span-2 min-h-[200px] md:min-h-0">
             <BentoCard
               title="Business Digitization"
               value="Full Transformation"
-              subtitle="Transform traditional processes into modern, efficient digital workflows"
+              subtitle="Transform traditional processes into modern, efficient digital workflows. Move from paper-based systems to cloud solutions that streamline operations."
               colors={["#171717", "#272727", "#1b1b1b"]}
               delay={0.8}
             />
           </div>
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 min-h-[200px] md:min-h-0">
             <BentoCard
               title="AI Integration"
               value="Workflow Automation"
-              subtitle="Incorporate AI into your existing workflow to streamline tasks and boost productivity"
+              subtitle="Incorporate AI into your existing workflow to streamline tasks and boost productivity. From chatbots to predictive analytics, leverage AI for smarter operations."
               colors={["#131313", "#232323", "#191919"]}
               delay={1}
             />
