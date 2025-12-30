@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Code, Search, Share2, Smartphone, Brain, ArrowRight } from "lucide-react"
 import { Button } from "./ui/button"
 import Link from "next/link"
+import { AnimatedGradient } from "./ui/animated-gradient-with-svg"
 
 const services = [
   {
@@ -109,48 +110,91 @@ export function ServicesPageContent() {
       </section>
 
       {/* Services List */}
-      <section className="py-20 px-4 bg-background">
+      <section className="py-20 px-4 bg-black">
+        <svg width="0" height="0" className="absolute">
+          <defs>
+            <filter id="noise-services" x="0%" y="0%" width="100%" height="100%">
+              <feTurbulence baseFrequency="0.4" numOctaves="2" result="noise" seed="2" type="fractalNoise" />
+              <feColorMatrix in="noise" type="saturate" values="0" />
+              <feComponentTransfer>
+                <feFuncA type="discrete" tableValues="0.02 0.04 0.06" />
+              </feComponentTransfer>
+              <feComposite operator="over" in2="SourceGraphic" />
+            </filter>
+          </defs>
+        </svg>
+
         <div className="container mx-auto max-w-6xl">
-          <div className="space-y-24">
+          <div className="space-y-8 md:space-y-12">
             {services.map((service, index) => {
               const Icon = service.icon
+              const colors = [
+                ["#1a1a1a", "#2a2a2a", "#1f1f1f"],
+                ["#151515", "#252525", "#1d1d1d"],
+                ["#1c1c1c", "#2c2c2c", "#181818"],
+                ["#171717", "#272727", "#1b1b1b"],
+                ["#131313", "#232323", "#191919"],
+              ][index % 5]
+
               return (
                 <motion.div
                   key={service.title}
-                  className="grid md:grid-cols-2 gap-12 items-center"
+                  className="relative overflow-hidden bg-black rounded-lg border border-border/20 group"
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  style={{ filter: "url(#noise-services)" }}
                 >
-                  <div className={`${index % 2 === 1 ? "md:order-2" : ""}`}>
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-lg bg-white/10 mb-6">
-                      <Icon className="h-8 w-8 text-white" />
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{service.title}</h2>
-                    <p className="text-lg text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+                  <AnimatedGradient colors={colors} speed={0.05} blur="medium" />
 
-                    <div className="space-y-4 mb-8">
-                      <h3 className="text-xl font-semibold text-white">Key Benefits:</h3>
-                      <ul className="space-y-3">
-                        {service.benefits.map((benefit, idx) => (
-                          <li key={idx} className="flex items-start text-gray-300">
-                            <ArrowRight className="h-5 w-5 text-white mr-3 mt-0.5 flex-shrink-0" />
-                            <span>{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="bg-card/50 backdrop-blur-sm border border-border/20 rounded-lg p-6">
-                      <h3 className="text-xl font-semibold text-white mb-3">Business Impact</h3>
-                      <p className="text-gray-300 leading-relaxed">{service.impact}</p>
-                    </div>
+                  <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
+                    <div
+                      className="w-full h-full"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                        backgroundSize: "256px 256px",
+                        mixBlendMode: "overlay",
+                      }}
+                    />
                   </div>
 
-                  <div className={`${index % 2 === 1 ? "md:order-1" : ""}`}>
-                    <div className="aspect-square bg-gradient-to-br from-white/5 to-white/0 rounded-2xl border border-border/20 flex items-center justify-center">
-                      <Icon className="h-32 w-32 text-white/20" />
+                  <div className="absolute inset-0 opacity-80 transition-opacity duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full animate-[shine_4s_ease-in-out_infinite] w-[200%]" />
+                  </div>
+
+                  <div className="relative z-10 p-6 md:p-8 lg:p-12">
+                    <div className="grid md:grid-cols-2 gap-8 items-start">
+                      <div>
+                        <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-lg bg-white/10 mb-4 md:mb-6">
+                          <Icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
+                        </div>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
+                          {service.title}
+                        </h2>
+                        <p className="text-sm md:text-base lg:text-lg text-gray-300 mb-4 md:mb-6 leading-relaxed">
+                          {service.description}
+                        </p>
+
+                        <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+                          <h3 className="text-lg md:text-xl font-semibold text-white">Key Benefits:</h3>
+                          <ul className="space-y-2 md:space-y-3">
+                            {service.benefits.map((benefit, idx) => (
+                              <li key={idx} className="flex items-start text-xs md:text-sm text-gray-300">
+                                <ArrowRight className="h-4 w-4 md:h-5 md:w-5 text-white mr-2 md:mr-3 mt-0.5 flex-shrink-0" />
+                                <span>{benefit}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="bg-card/30 backdrop-blur-sm border border-border/20 rounded-lg p-4 md:p-6">
+                        <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">
+                          Business Impact
+                        </h3>
+                        <p className="text-xs md:text-sm text-gray-300 leading-relaxed">{service.impact}</p>
+                      </div>
                     </div>
                   </div>
                 </motion.div>

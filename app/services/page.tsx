@@ -1,6 +1,9 @@
 import { Header } from "@/components/header"
 import { ServicesPageContent } from "@/components/services-page-content"
 import { Footer } from "@/components/footer"
+import { metadata as servicesMetadata } from "./metadata"
+
+export const metadata = servicesMetadata
 
 export default function ServicesPage() {
   return (

@@ -99,6 +99,49 @@ export function StructuredData() {
     },
   }
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Kunthive",
+    description:
+      "Digital solutions provider offering web applications, SEO optimization, social media management, business digitization, and AI-powered workflow automation.",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://kunthive.com",
+    telephone: "+91-XXXXXXXXXX",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bangalore",
+      addressRegion: "Karnataka",
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "12.9716",
+      longitude: "77.5946",
+    },
+    priceRange: "$$",
+    image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://kunthive.com"}/Logo/android-chrome-512x512.png`,
+    sameAs: [
+      "https://facebook.com/Kunthive",
+      "https://twitter.com/Kunthive",
+      "https://instagram.com/Kunthive",
+      "https://linkedin.com/company/Kunthive",
+      "https://youtube.com/@Kunthive",
+    ],
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: process.env.NEXT_PUBLIC_SITE_URL || "https://kunthive.com",
+      },
+    ],
+  }
+
   return (
     <>
       <script
