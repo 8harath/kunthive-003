@@ -268,9 +268,40 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
 
   const animate = () => {
     const canvas = canvasRef.current
-    if (!canvas) return
+    if (!canvas) {
+      animationRef.current = requestAnimationFrame(animate)
+      return
+    }
 
-    const ctx = canvas.getContext("2d")!
+    // Ensure canvas has valid dimensions
+    if (canvas.width === 0 || canvas.height === 0) {
+      const container = canvas.parentElement
+      if (container) {
+        canvas.width = container.clientWidth || window.innerWidth
+        canvas.height = container.clientHeight || window.innerHeight
+      } else {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      }
+      
+      // If still no dimensions, skip this frame but continue loop
+      if (canvas.width === 0 || canvas.height === 0) {
+        animationRef.current = requestAnimationFrame(animate)
+        return
+      }
+      
+      // Initialize particles if we just got dimensions and have no particles
+      if (particlesRef.current.length === 0) {
+        nextWord(words[wordIndexRef.current], canvas)
+      }
+    }
+
+    const ctx = canvas.getContext("2d")
+    if (!ctx) {
+      animationRef.current = requestAnimationFrame(animate)
+      return
+    }
+
     const particles = particlesRef.current
 
     // Background with motion blur
@@ -330,32 +361,43 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
         const width = container.clientWidth || window.innerWidth
         const height = container.clientHeight || window.innerHeight
         
-        // Ensure minimum dimensions
+        // Ensure minimum dimensions - use fallback if container has no size
         if (width > 0 && height > 0) {
           canvas.width = width
           canvas.height = height
+        } else {
+          // Fallback to window dimensions if container not ready
+          canvas.width = window.innerWidth
+          canvas.height = window.innerHeight
+        }
+      } else {
+        // Fallback if no parent element
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      }
+    }
+
+    // Initial resize
+    resizeCanvas()
+
+    // Initialize with first word if canvas is ready
+    if (canvas.width > 0 && canvas.height > 0) {
+      nextWord(words[0], canvas)
+    } else {
+      // Retry initialization after a short delay
+      const initRetry = () => {
+        resizeCanvas()
+        if (canvas.width > 0 && canvas.height > 0) {
+          nextWord(words[0], canvas)
+        } else {
+          setTimeout(initRetry, 50)
         }
       }
+      setTimeout(initRetry, 100)
     }
 
-    // Initial resize - use a small delay to ensure container is rendered
-    const initCanvas = () => {
-      resizeCanvas()
-      
-      // Only initialize if canvas has valid dimensions
-      if (canvas.width > 0 && canvas.height > 0) {
-        nextWord(words[0], canvas)
-        animate()
-      } else {
-        // Retry after a short delay if dimensions aren't ready
-        setTimeout(initCanvas, 100)
-      }
-    }
-
-    // Use requestAnimationFrame to ensure DOM is ready
-    requestAnimationFrame(() => {
-      initCanvas()
-    })
+    // Always start animation loop - it will handle cases where canvas isn't ready
+    animate()
 
     // Mouse event handlers
     const handleMouseDown = (e: MouseEvent) => {
@@ -408,8 +450,8 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
   }, [])
 
   return (
-    <div className="w-full h-full absolute inset-0">
-      <canvas ref={canvasRef} className="w-full h-full" style={{ background: "black", zIndex: 10 }} />
+    <div className="w-full h-full absolute inset-0 min-h-[400px] md:min-h-[600px]">
+      <canvas ref={canvasRef} className="w-full h-full" style={{ background: "transparent", zIndex: 10 }} />
     </div>
   )
 }

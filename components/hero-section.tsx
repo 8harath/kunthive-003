@@ -3,8 +3,8 @@ import { ParticleTextEffect } from "./particle-text-effect"
 export function HeroSection() {
   return (
     <section className="py-8 md:py-20 px-4 relative overflow-hidden min-h-screen flex flex-col justify-between">
-      <div className="flex-1 flex items-center justify-center pt-8 md:pt-20 pb-8 md:pb-0">
-        <div className="relative z-20 w-full">
+      <div className="flex-1 flex items-center justify-center pt-8 md:pt-20 pb-8 md:pb-0 relative w-full h-full">
+        <div className="relative z-20 w-full h-full min-h-[400px] md:min-h-[600px]">
           <ParticleTextEffect words={["Kunthive", "Digital"]} />
         </div>
       </div>
