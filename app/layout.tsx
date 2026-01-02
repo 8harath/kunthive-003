@@ -5,10 +5,10 @@ import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
   title: {
-    default: "Kunthive - Digital Solutions for Modern Businesses | Web Apps, SEO, Social Media, AI Integration",
+    default: "Kunthive — Digital Solutions for Modern Businesses",
     template: "%s | Kunthive",
   },
-  description: "Kunthive offers comprehensive digital solutions including web application development, SEO optimization, social media management, business digitization, and AI-powered workflow automation. Based in Bangalore, managed by passionate students helping local businesses thrive.",
+  description: "Kunthive delivers professional digital solutions — web applications, SEO, social media management, business digitization, and AI workflow automation. Based in Bangalore.",
   keywords: [
     "Kunthive",
     "digital solutions",
