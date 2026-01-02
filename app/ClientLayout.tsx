@@ -7,26 +7,21 @@ import { Suspense } from "react"
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 })
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 })
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 })
-
-function ClientLayoutContent({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return <>{children}</>
-}
 
 export default function ClientLayout({
   children,
@@ -36,13 +31,15 @@ export default function ClientLayout({
   return (
     <Suspense
       fallback={
-        <div className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}>
-          <div>Loading...</div>
+        <div className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable} bg-white`}>
+          <div className="flex items-center justify-center min-h-screen">
+            <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+          </div>
         </div>
       }
     >
       <div className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}>
-        <ClientLayoutContent>{children}</ClientLayoutContent>
+        {children}
       </div>
     </Suspense>
   )
