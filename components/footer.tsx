@@ -1,31 +1,45 @@
 import { LeLoLogo } from "./lelo-logo"
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, Github } from "lucide-react"
-import { BackgroundPaths } from "./ui/floating-paths"
 import Link from "next/link"
 
-export function Footer() {
-  const socialLinks = [
-    { name: "Facebook", icon: Facebook, url: "https://facebook.com/Kunthive" },
-    { name: "Twitter", icon: Twitter, url: "https://twitter.com/Kunthive" },
-    { name: "Instagram", icon: Instagram, url: "https://instagram.com/Kunthive" },
-    { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/company/Kunthive" },
-    { name: "YouTube", icon: Youtube, url: "https://youtube.com/@Kunthive" },
-    { name: "GitHub", icon: Github, url: "https://github.com/Kunthive" },
-  ]
+const socialLinks = [
+  { name: "Facebook", icon: Facebook, url: "https://facebook.com/Kunthive" },
+  { name: "Twitter", icon: Twitter, url: "https://twitter.com/Kunthive" },
+  { name: "Instagram", icon: Instagram, url: "https://instagram.com/Kunthive" },
+  { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/company/Kunthive" },
+  { name: "YouTube", icon: Youtube, url: "https://youtube.com/@Kunthive" },
+  { name: "GitHub", icon: Github, url: "https://github.com/Kunthive" },
+]
 
+const quickLinks = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/testimonials", label: "Testimonials" },
+  { href: "/about", label: "About Us" },
+  { href: "/contact", label: "Contact" },
+]
+
+const serviceLinks = [
+  "Web Applications",
+  "SEO Optimization",
+  "Social Media",
+  "Business Digitization",
+  "AI Integration",
+]
+
+export function Footer() {
   return (
-    <footer className="relative bg-black border-t border-white/10 py-6 md:py-8 px-4 overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <BackgroundPaths />
-      </div>
-      <div className="relative z-10 container mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+    <footer className="bg-gray-50 border-t border-border">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <LeLoLogo className="mb-2 md:mb-3" />
-            <p className="text-xs md:text-sm text-white/70 mb-3 md:mb-4 max-w-md">
-              Empowering businesses with comprehensive digital solutions.
+            <LeLoLogo className="mb-4" />
+            <p className="text-sm text-muted-foreground mb-5 max-w-xs leading-relaxed">
+              Empowering businesses with professional digital solutions. Based in Bangalore.
             </p>
-            <div className="flex flex-wrap gap-2 md:gap-3">
+            <div className="flex flex-wrap gap-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon
                 return (
@@ -34,76 +48,66 @@ export function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/70 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                     aria-label={social.name}
                   >
-                    <Icon className="h-4 w-4 md:h-5 md:w-5" />
+                    <Icon className="h-4 w-4" />
                   </a>
                 )
               })}
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h3 className="text-sm md:text-base font-semibold text-white mb-2 md:mb-3">Quick Links</h3>
-            <ul className="space-y-1 md:space-y-2 text-xs md:text-sm text-white/70">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
+            <h3 className="text-sm font-semibold text-foreground mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Services */}
           <div>
-            <h3 className="text-sm md:text-base font-semibold text-white mb-2 md:mb-3">Services</h3>
-            <ul className="space-y-1 md:space-y-2 text-xs md:text-sm text-white/70">
+            <h3 className="text-sm font-semibold text-foreground mb-4">Services</h3>
+            <ul className="space-y-2">
+              {serviceLinks.map((service) => (
+                <li key={service}>
+                  <span className="text-sm text-muted-foreground">{service}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-sm font-semibold text-foreground mb-4">Contact</h3>
+            <ul className="space-y-2">
               <li>
-                <span className="hover:text-white transition-colors cursor-default">
-                  Web Applications
-                </span>
+                <a
+                  href="mailto:contact@kunthive.com"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  contact@kunthive.com
+                </a>
               </li>
-              <li>
-                <span className="hover:text-white transition-colors cursor-default">
-                  SEO Optimization
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-white transition-colors cursor-default">
-                  Social Media
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-white transition-colors cursor-default">
-                  Digitization
-                </span>
-              </li>
-              <li>
-                <span className="hover:text-white transition-colors cursor-default">
-                  AI Integration
-                </span>
-              </li>
+              <li className="text-sm text-muted-foreground">Bangalore, India</li>
+              <li className="text-sm text-muted-foreground">Responds within 24 hours</li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-4 md:mt-6 pt-4 md:pt-6 text-center text-xs md:text-sm text-white/50">
-          <p>&copy; 2026 Kunthive. All rights reserved.</p>
+        <div className="border-t border-border mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-xs text-muted-foreground">&copy; 2026 Kunthive. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">Built with care in Bangalore</p>
         </div>
       </div>
     </footer>
