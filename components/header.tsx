@@ -4,104 +4,108 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { LeLoLogo } from "./lelo-logo"
+import { Menu, X } from "lucide-react"
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+]
 
 export function Header() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-
-      setIsScrolled(currentScrollY > 50)
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false)
-      } else {
-        setIsVisible(true)
-      }
-
-      setLastScrollY(currentScrollY)
-    }
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [lastScrollY])
+  }, [])
+
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
 
   return (
     <header
-      className={`
-        fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ease-in-out
-        ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}
-      `}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-md border-b border-border/60 shadow-sm"
+          : "bg-white/80 backdrop-blur-sm border-b border-transparent"
+      }`}
     >
-      <div
-        className={`
-          flex items-center justify-center gap-6 px-6 py-3 rounded-2xl border transition-all duration-300
-          ${
-            isScrolled
-              ? "bg-background/90 backdrop-blur-xl border-border/40 shadow-2xl"
-              : "bg-background/95 backdrop-blur-lg border-border/30 shadow-lg"
-          }
-        `}
-      >
-        <div className="transform transition-transform duration-200 hover:scale-105">
-          <LeLoLogo />
-        </div>
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <LeLoLogo />
 
-        <nav className="hidden md:flex items-center gap-6">
-          <Link
-            href="/"
-            className={`relative text-foreground/80 hover:text-foreground transition-all duration-300 group px-3 py-1 rounded-lg hover:bg-foreground/5 transform hover:scale-110 hover:rotate-1 hover:skew-x-1 ${
-              pathname === "/" ? "text-foreground" : ""
-            }`}
-          >
-            Home
-            {pathname === "/" && (
-              <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-0.5 bg-primary"></span>
-            )}
-            <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-4"></span>
-          </Link>
-          <Link
-            href="/services"
-            className={`relative text-foreground/80 hover:text-foreground transition-all duration-300 group px-3 py-1 rounded-lg hover:bg-foreground/5 transform hover:scale-110 hover:-rotate-1 hover:-skew-x-1 ${
-              pathname === "/services" ? "text-foreground" : ""
-            }`}
-          >
-            Services
-            {pathname === "/services" && (
-              <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-0.5 bg-primary"></span>
-            )}
-            <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-4"></span>
-          </Link>
-          <Link
-            href="/about"
-            className={`relative text-foreground/80 hover:text-foreground transition-all duration-300 group px-3 py-1 rounded-lg hover:bg-foreground/5 transform hover:scale-110 hover:rotate-1 hover:skew-x-1 ${
-              pathname === "/about" ? "text-foreground" : ""
-            }`}
-          >
-            About
-            {pathname === "/about" && (
-              <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-0.5 bg-primary"></span>
-            )}
-            <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-4"></span>
-          </Link>
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                pathname === link.href
+                  ? "text-primary bg-accent"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+              }`}
+            >
+              {link.label}
+              {pathname === link.href && (
+                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
+              )}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Desktop CTA */}
+        <div className="hidden md:flex items-center gap-3">
           <Link
             href="/contact"
-            className={`relative text-foreground/80 hover:text-foreground transition-all duration-300 group px-3 py-1 rounded-lg hover:bg-foreground/5 transform hover:scale-110 hover:-rotate-1 hover:-skew-x-1 ${
-              pathname === "/contact" ? "text-foreground" : ""
-            }`}
+            className="px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200"
           >
-            Contact
-            {pathname === "/contact" && (
-              <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-0.5 bg-primary"></span>
-            )}
-            <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-4"></span>
+            Get Started
           </Link>
-        </nav>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
+
+      {/* Mobile nav */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-border bg-white/98 backdrop-blur-md">
+          <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
+                  pathname === link.href
+                    ? "text-primary bg-accent"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              className="mt-2 px-4 py-3 text-sm font-medium text-center bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Get Started
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }
