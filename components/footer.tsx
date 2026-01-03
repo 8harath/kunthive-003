@@ -107,7 +107,11 @@ export function Footer() {
 
         <div className="border-t border-border mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-muted-foreground">&copy; 2026 Kunthive. All rights reserved.</p>
-          <p className="text-xs text-muted-foreground">Built with care in Bangalore</p>
+          <div className="flex items-center gap-4">
+            <Link href="/about" className="text-xs text-muted-foreground hover:text-primary transition-colors">Privacy</Link>
+            <Link href="/about" className="text-xs text-muted-foreground hover:text-primary transition-colors">Terms</Link>
+            <p className="text-xs text-muted-foreground">Built with care in Bangalore</p>
+          </div>
         </div>
       </div>
     </footer>
