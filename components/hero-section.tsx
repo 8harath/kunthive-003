@@ -23,8 +23,9 @@ export function HeroSection() {
           backgroundSize: "32px 32px",
         }}
       />
-      {/* Blue accent blob */}
+      {/* Blue accent blobs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50 rounded-full opacity-60 blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-50 rounded-full opacity-40 blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
       <div className="relative container mx-auto max-w-6xl">
         <motion.div
