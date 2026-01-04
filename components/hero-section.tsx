@@ -8,6 +8,7 @@ const stats = [
   { value: "50+", label: "Clients Served" },
   { value: "95%", label: "Satisfaction Rate" },
   { value: "3x", label: "Avg. Traffic Growth" },
+  { value: "24h", label: "Response Time" },
 ]
 
 export function HeroSection() {
