@@ -1,168 +1,134 @@
 "use client"
 
-import type React from "react"
 import { motion } from "framer-motion"
-import { AnimatedGradient } from "@/components/ui/animated-gradient-with-svg"
+import { Code, Search, Share2, Smartphone, Brain } from "lucide-react"
+import Link from "next/link"
 
-interface BentoCardProps {
-  title: string
-  value: string | number
-  subtitle?: string
-  colors: string[]
-  delay: number
+const features = [
+  {
+    icon: Code,
+    title: "Web Applications",
+    description: "Scalable, responsive web apps tailored to your business — from landing pages to complex platforms.",
+    color: "bg-blue-50 text-blue-600",
+  },
+  {
+    icon: Search,
+    title: "SEO Optimization",
+    description: "Boost organic visibility with keyword strategy, technical audits, and content optimization.",
+    color: "bg-violet-50 text-violet-600",
+  },
+  {
+    icon: Share2,
+    title: "Social Media",
+    description: "Consistent brand presence across all platforms — content, community, and analytics.",
+    color: "bg-pink-50 text-pink-600",
+  },
+  {
+    icon: Smartphone,
+    title: "Business Digitization",
+    description: "Move from paper to cloud — automated workflows, digital payments, real-time data.",
+    color: "bg-emerald-50 text-emerald-600",
+  },
+  {
+    icon: Brain,
+    title: "AI Integration",
+    description: "Chatbots, predictive analytics, document processing — AI that works in your existing workflow.",
+    color: "bg-amber-50 text-amber-600",
+  },
+]
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.1 },
+  },
 }
 
-const BentoCard: React.FC<BentoCardProps> = ({ title, value, subtitle, colors, delay }) => {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: delay + 0.3,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: 0.5 } },
-  }
-
-  return (
-    <motion.div
-      className="relative overflow-hidden h-full bg-black rounded-lg border border-border/20 group"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay }}
-      style={{
-        filter: "url(#noise)",
-      }}
-    >
-      <AnimatedGradient colors={colors} speed={0.05} blur="medium" />
-
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            backgroundSize: "256px 256px",
-            mixBlendMode: "overlay",
-          }}
-        />
-      </div>
-
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-        <div
-          className="w-full h-full animate-pulse"
-          style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.05) 1px, transparent 1px),
-                             radial-gradient(circle at 75% 75%, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-            backgroundSize: "48px 48px, 64px 64px",
-            backgroundPosition: "0 0, 24px 24px",
-          }}
-        />
-      </div>
-
-      <div className="absolute inset-0 opacity-80 transition-opacity duration-500">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full animate-[shine_4s_ease-in-out_infinite] w-[200%]" />
-      </div>
-
-      <motion.div
-        className="relative z-10 p-4 sm:p-5 md:p-8 text-foreground backdrop-blur-sm h-full flex flex-col justify-center"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        <motion.h3 className="text-sm sm:text-base md:text-lg text-foreground mb-2 md:mb-3" variants={item}>
-          {title}
-        </motion.h3>
-        <motion.p className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium mb-3 md:mb-4 text-foreground" variants={item}>
-          {value}
-        </motion.p>
-        {subtitle && (
-          <motion.p className="text-xs sm:text-sm md:text-base text-foreground/80 leading-relaxed" variants={item}>
-            {subtitle}
-          </motion.p>
-        )}
-      </motion.div>
-    </motion.div>
-  )
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 }
 
 export function AnimatedFeaturesSection() {
   return (
-    <section id="features" className="py-20 px-4 bg-black">
-      <svg width="0" height="0" className="absolute">
-        <defs>
-          <filter id="noise" x="0%" y="0%" width="100%" height="100%">
-            <feTurbulence baseFrequency="0.4" numOctaves="2" result="noise" seed="2" type="fractalNoise" />
-            <feColorMatrix in="noise" type="saturate" values="0" />
-            <feComponentTransfer>
-              <feFuncA type="discrete" tableValues="0.02 0.04 0.06" />
-            </feComponentTransfer>
-            <feComposite operator="over" in2="SourceGraphic" />
-          </filter>
-        </defs>
-      </svg>
-
-      <div className="container mx-auto">
+    <section id="features" className="py-24 px-4 bg-gray-50">
+      <div className="container mx-auto max-w-6xl">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
-            Our Services
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Comprehensive digital solutions to elevate your business
-          </p>
+          <motion.p
+            className="text-sm font-semibold text-primary uppercase tracking-widest mb-3"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            What We Do
+          </motion.p>
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+            style={{ fontFamily: "var(--font-playfair)" }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            Our Core Services
+          </motion.h2>
+          <motion.p
+            className="text-muted-foreground max-w-xl mx-auto"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Comprehensive digital solutions to help your business grow, compete, and thrive online.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 min-h-[500px] md:h-[600px]">
-          <div className="md:col-span-2 min-h-[200px] md:min-h-0">
-            <BentoCard
-              title="Web Applications"
-              value="Custom Built"
-              subtitle="Scalable, responsive web applications tailored to your business needs and goals. We create modern, user-friendly solutions that drive engagement and growth."
-              colors={["#1a1a1a", "#2a2a2a", "#1f1f1f"]}
-              delay={0.2}
-            />
-          </div>
-          <div className="min-h-[200px] md:min-h-0">
-            <BentoCard
-              title="SEO Optimization"
-              value="Higher Rankings"
-              subtitle="Boost your visibility and drive organic traffic with proven SEO strategies. Improve search rankings and attract qualified leads to your business."
-              colors={["#151515", "#252525", "#1d1d1d"]}
-              delay={0.4}
-            />
-          </div>
-          <div className="min-h-[200px] md:min-h-0">
-            <BentoCard
-              title="Social Media"
-              value="Managed"
-              subtitle="Engage your audience and grow your brand across all platforms. Consistent content, community management, and strategic growth."
-              colors={["#1c1c1c", "#2c2c2c", "#181818"]}
-              delay={0.6}
-            />
-          </div>
-          <div className="md:col-span-2 min-h-[200px] md:min-h-0">
-            <BentoCard
-              title="Business Digitization"
-              value="Full Transformation"
-              subtitle="Transform traditional processes into modern, efficient digital workflows. Move from paper-based systems to cloud solutions that streamline operations."
-              colors={["#171717", "#272727", "#1b1b1b"]}
-              delay={0.8}
-            />
-          </div>
-          <div className="md:col-span-3 min-h-[200px] md:min-h-0">
-            <BentoCard
-              title="AI Integration"
-              value="Workflow Automation"
-              subtitle="Incorporate AI into your existing workflow to streamline tasks and boost productivity. From chatbots to predictive analytics, leverage AI for smarter operations."
-              colors={["#131313", "#232323", "#191919"]}
-              delay={1}
-            />
-          </div>
-        </div>
+        {/* Cards grid */}
+        <motion.div
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {features.map((feature) => {
+            const Icon = feature.icon
+            return (
+              <motion.div
+                key={feature.title}
+                variants={cardVariants}
+                className="bg-white rounded-2xl p-6 border border-border hover:shadow-md transition-shadow duration-300 group"
+              >
+                <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl mb-4 ${feature.color}`}>
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+              </motion.div>
+            )
+          })}
+
+          {/* CTA card */}
+          <motion.div
+            variants={cardVariants}
+            className="bg-primary rounded-2xl p-6 border border-primary flex flex-col justify-between"
+          >
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-2">Ready to start?</h3>
+              <p className="text-sm text-blue-100 leading-relaxed">
+                Tell us about your project and we'll put together a custom plan.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-white underline underline-offset-2 hover:text-blue-100 transition-colors"
+            >
+              Get in touch →
+            </Link>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
