@@ -134,8 +134,8 @@ export function ServicesPageContent() {
                   className={`rounded-2xl border ${service.accent} ${service.color} overflow-hidden`}
                   initial={{ opacity: 0, y: 32 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.06 }}
+                  viewport={{ once: true, margin: "-50px" }}
                 >
                   <div className="p-8 md:p-10">
                     <div className="grid md:grid-cols-5 gap-8">
