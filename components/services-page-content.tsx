@@ -18,7 +18,7 @@ const services = [
       "Modern stack for performance and security",
       "User-friendly interfaces that convert",
     ],
-    impact: "A well-designed web application can increase customer engagement by up to 85% and improve conversions significantly.",
+    impact: "A well-designed web application can increase customer engagement by up to 85%, improve conversions, and reduce support overhead by automating common workflows.",
     color: "bg-blue-50",
     iconColor: "bg-blue-100 text-blue-600",
     accent: "border-blue-100",
