@@ -6,7 +6,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Services - Web Development, SEO, Social Media, AI Integration | Kunthive",
   description:
-    "Comprehensive digital services including web application development, SEO optimization, social media management, business digitization, and AI integration. Transform your business with Kunthive's expert solutions in Bangalore.",
+    "Web apps, SEO, social media, business digitization, and AI integration — all under one roof. Kunthive delivers professional digital solutions in Bangalore to help businesses grow.",
   keywords: [
     "web development services",
     "SEO services Bangalore",
