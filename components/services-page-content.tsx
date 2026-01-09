@@ -174,10 +174,10 @@ export function ServicesPageContent() {
                         </div>
                         <Link
                           href="/contact"
-                          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
                         >
                           Get started with this service
-                          <ArrowRight className="h-3.5 w-3.5" />
+                          <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                       </div>
                     </div>
