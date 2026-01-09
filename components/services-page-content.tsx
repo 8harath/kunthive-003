@@ -204,8 +204,8 @@ export function ServicesPageContent() {
             >
               Ready to Get Started?
             </h2>
-            <p className="text-muted-foreground mb-8">
-              Let's discuss how our services can help you achieve your business goals.
+            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+              Tell us about your project. Free consultation, no long-term contracts, results within 30 days.
             </p>
             <Link
               href="/contact"
