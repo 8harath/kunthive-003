@@ -190,7 +190,7 @@ export function ServicesPageContent() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 px-4 bg-gray-50 border-t border-border">
+      <section className="py-20 px-4 bg-gray-50 border-t border-border">
         <div className="container mx-auto max-w-3xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
