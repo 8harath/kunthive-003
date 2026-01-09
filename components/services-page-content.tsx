@@ -125,7 +125,7 @@ export function ServicesPageContent() {
       {/* Services list */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-5xl">
-          <div className="space-y-12">
+          <div className="space-y-10">
             {services.map((service, index) => {
               const Icon = service.icon
               return (
