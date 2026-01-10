@@ -41,6 +41,11 @@ const faqs = [
     answer:
       "Yes — from solo founders to mid-sized enterprises. Our services scale to meet you where you are, with pricing plans from $29/month up to custom enterprise engagements.",
   },
+  {
+    question: "What is included in your pricing plans?",
+    answer:
+      "Every plan includes initial consultation, project management, regular updates, and ongoing support. Enterprise plans add a dedicated account manager, priority 24/7 support, custom integrations, and an SLA guarantee.",
+  },
 ]
 
 export function FAQSection() {
