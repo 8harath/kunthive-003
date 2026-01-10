@@ -166,15 +166,23 @@ export function PricingSection() {
         </div>
 
         {/* Footer note */}
-        <motion.p
-          className="text-center text-sm text-muted-foreground mt-10"
+        <motion.div
+          className="text-center mt-10 space-y-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          All plans include a 14-day free trial · No credit card required
-        </motion.p>
+          <p className="text-sm text-muted-foreground">
+            All plans include a 14-day free trial · No credit card required
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Need a custom solution?{" "}
+            <Link href="/contact" className="text-primary hover:underline font-medium">
+              Talk to our team
+            </Link>
+          </p>
+        </motion.div>
       </div>
     </section>
   )
