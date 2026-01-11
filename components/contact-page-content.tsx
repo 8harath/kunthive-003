@@ -52,7 +52,8 @@ export function ContactPageContent() {
       setSubmitStatus("success")
       setFormData({ name: "", email: "", message: "" })
       setTimeout(() => setSubmitStatus("idle"), 5000)
-    } catch {
+    } catch (err) {
+      console.error("EmailJS error:", err)
       setSubmitStatus("error")
       setTimeout(() => setSubmitStatus("idle"), 5000)
     } finally {
