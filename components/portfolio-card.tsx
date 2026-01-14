@@ -22,7 +22,7 @@ interface PortfolioCardProps {
 export function PortfolioCard({ project, index }: PortfolioCardProps) {
   return (
     <motion.div
-      className={`rounded-2xl border border-border ${project.color} p-8 hover:shadow-md transition-all duration-300 group relative overflow-hidden`}
+      className={`rounded-2xl border border-border/60 ${project.color} p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group relative overflow-hidden`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
