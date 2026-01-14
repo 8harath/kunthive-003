@@ -126,7 +126,7 @@ export function PortfolioPageContent() {
               Want Results Like These?
             </h2>
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-              Let's talk about your project and how we can help you achieve similar outcomes.
+              Every project here started with a conversation. Let's start yours today.
             </p>
             <Link
               href="/contact"
