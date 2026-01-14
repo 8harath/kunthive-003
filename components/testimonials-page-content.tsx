@@ -106,7 +106,7 @@ export function TestimonialsPageContent() {
       </section>
 
       {/* Testimonials grid */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {testimonials.map((t, index) => (
