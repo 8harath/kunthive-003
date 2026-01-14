@@ -28,15 +28,15 @@ export function PortfolioCard({ project, index }: PortfolioCardProps) {
       transition={{ duration: 0.5, delay: index * 0.08 }}
       viewport={{ once: true, margin: "-40px" }}
     >
-      <div className="flex items-start justify-between mb-4">
+      <div className="flex items-start justify-between mb-5">
         <div>
-          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
+          <span className={`inline-block text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full mb-2 ${project.iconBg}`}>
             {project.category}
-          </p>
-          <h3 className="text-xl font-bold text-foreground">{project.title}</h3>
-          <p className="text-sm text-muted-foreground mt-0.5">{project.client}</p>
+          </span>
+          <h3 className="text-lg font-bold text-foreground leading-tight">{project.title}</h3>
+          <p className="text-xs text-muted-foreground mt-0.5">{project.client}</p>
         </div>
-        <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${project.iconBg}`}>
+        <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ml-3 ${project.iconBg}`}>
           <ArrowUpRight className="h-4 w-4" />
         </div>
       </div>
