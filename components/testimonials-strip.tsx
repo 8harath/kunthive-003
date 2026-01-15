@@ -69,7 +69,7 @@ export function TestimonialsStrip() {
         </div>
 
         <motion.div
-          className="text-center mt-8 sm:hidden"
+          className="text-center mt-6 sm:hidden"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
