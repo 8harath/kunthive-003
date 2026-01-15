@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 px-4 bg-white">
+    <section id="about" className="py-24 px-4 bg-white border-t border-border">
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left — text */}
