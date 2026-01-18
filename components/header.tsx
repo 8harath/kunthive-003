@@ -47,7 +47,7 @@ export function Header() {
           : "bg-white/80 backdrop-blur-sm border-b border-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <LeLoLogo />
 
         {/* Desktop nav */}
