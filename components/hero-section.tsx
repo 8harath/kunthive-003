@@ -13,7 +13,7 @@ const stats = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-white pt-20 pb-24 px-4">
+    <section className="relative overflow-hidden bg-white pt-16 pb-20 px-4 sm:pt-20 sm:pb-24">
       {/* Subtle background pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
