@@ -52,7 +52,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-24 px-4 bg-gray-50 border-t border-border">
+    <section id="faq" className="py-16 px-4 sm:py-24 bg-gray-50 border-t border-border">
       <div className="container mx-auto max-w-3xl">
         {/* Header */}
         <div className="text-center mb-14">
