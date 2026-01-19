@@ -89,9 +89,9 @@ export function AboutPageContent() {
       </section>
 
       {/* Values */}
-      <section className="py-16 px-4 bg-gray-50 border-t border-border">
+      <section className="py-12 px-4 sm:py-16 bg-gray-50 border-t border-border">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10 sm:mb-12">
             <h2
               className="text-2xl md:text-3xl font-bold text-foreground"
               style={{ fontFamily: "var(--font-playfair)" }}
