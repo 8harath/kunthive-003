@@ -139,6 +139,18 @@ export function StructuredData() {
         name: "Home",
         item: process.env.NEXT_PUBLIC_SITE_URL || "https://kunthive.com",
       },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Portfolio",
+        item: `${process.env.NEXT_PUBLIC_SITE_URL || "https://kunthive.com"}/portfolio`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Testimonials",
+        item: `${process.env.NEXT_PUBLIC_SITE_URL || "https://kunthive.com"}/testimonials`,
+      },
     ],
   }
 
