@@ -6,7 +6,14 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Client Testimonials",
   description:
-    "Read what our clients say about Kunthive's digital solutions. Real results from real businesses in Bangalore — web apps, SEO, social media, and AI integration.",
+    "Client reviews and testimonials for Kunthive's digital solutions. Hear from businesses in Bangalore who've grown with our web apps, SEO, social media management, and AI integration services.",
+  keywords: [
+    "Kunthive reviews",
+    "client testimonials",
+    "digital agency reviews Bangalore",
+    "web development reviews",
+    "SEO success stories",
+  ],
   openGraph: {
     title: "Client Testimonials | Kunthive",
     description: "Hear from the businesses we've helped grow with digital solutions.",
