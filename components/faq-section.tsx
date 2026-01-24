@@ -101,9 +101,11 @@ export function FAQSection() {
               viewport={{ once: true, margin: "-40px" }}
             >
               <button
-                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
+                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
               >
                 <span className="text-sm md:text-base font-medium text-foreground">{faq.question}</span>
                 <span className="flex-shrink-0 text-muted-foreground">
