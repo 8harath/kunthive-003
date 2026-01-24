@@ -88,6 +88,7 @@ export function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm transition"
                 placeholder="Your name"
+                autoComplete="name"
               />
             </div>
             <div>
@@ -100,6 +101,7 @@ export function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm transition"
                 placeholder="your.email@example.com"
+                autoComplete="email"
               />
             </div>
             <div>
