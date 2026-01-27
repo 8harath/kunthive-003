@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 
 export function HomeCTASection() {
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-16 px-4 sm:py-20 bg-white border-t border-border">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           className="bg-gradient-to-br from-primary to-blue-700 rounded-3xl px-8 py-16 text-center text-white relative overflow-hidden"
